@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+</head>
+<body>
+    <a href="{% url 'accounts:register' %}">Register</a>
+    <a href="{% url 'accounts:login' %}">login</a>
+    <a href="{% url 'accounts:logout' %}">logout</a>
+    <h1>Hello @{{ user_name }}, <br> welcome to Troll Blocker </h1>
+    <a href="{% url 'auth' %}">
+        <button>Authorize</button>
+    </a>
+    <form action="{% url 'block' %}" method="post">{% csrf_token %}
+        <input type="submit" value="Block" />
+    </form>
+    <form action="{% url 'stop' %}" method="post">{%  csrf_token %}
+        <input type="submit" value="Stop" />
+    </form>
+
+    <script>
+        {% if messages %}
+            {%  for message in messages %}
+                alert('{{message}}')
+            {%  endfor %}
+        {% endif %}
+    </script>
+</body>
+</html>
