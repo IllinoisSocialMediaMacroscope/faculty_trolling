@@ -25,7 +25,7 @@ SECRET_KEY = 'veao!=!4kpd076qd_v7yvxl%o%u9&jxaf2$_b-k&9kll65+c@)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['54.244.214.245']
+ALLOWED_HOSTS = ['54.244.214.245','localhost']
 
 
 # Application definition
@@ -119,7 +119,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
-
 STATIC_URL = '/static/'
-
+STATIC_ROOT = '/home/ubuntu/faculty_trolling/faculty_trolling/static/'
+STATTICFILES_DIRS = [os.path.join(BASE_DIR,"static"),]
 LOGIN_REDIRECT_URL = '/block'

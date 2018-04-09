@@ -1,30 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ title }}</title>
-</head>
-<body>
-    <a href="{% url 'accounts:register' %}">Register</a>
-    <a href="{% url 'accounts:login' %}">login</a>
-    <a href="{% url 'accounts:logout' %}">logout</a>
-    <h1>Hello @{{ user_name }}, <br> welcome to Troll Blocker </h1>
-    <a href="{% url 'auth' %}">
-        <button>Authorize</button>
-    </a>
-    <form action="{% url 'block' %}" method="post">{% csrf_token %}
-        <input type="submit" value="Block" />
-    </form>
-    <form action="{% url 'stop' %}" method="post">{%  csrf_token %}
-        <input type="submit" value="Stop" />
-    </form>
+    <head>
+        <meta charset="UTF-8">
+        <title>{{ title }}</title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+        {% load static %}
+        <link href="{% static "index.css" %}" rel="stylesheet"/>
+    </head>
+    <body>
+        <div id="app-container" class="center-block" >
+            <nav class="navbar navbar-static-top">
+                <div class="container-fluid">
+                    <div id="navbar" class="navbar-collapse collapse">
+                        <ul class="nav nav-pills">
+                            <li>
+                                <a class="nav-link" href="{% url 'accounts:register' %}">Register</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="{% url 'accounts:login' %}">Login</a>
+                            </li>
+                            <li class="active">
+                                <a class="nav-link" href="{% url 'block' %}">Blocker</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="{% url 'accounts:logout' %}">Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
 
-    <script>
-        {% if messages %}
-            {%  for message in messages %}
-                alert('{{message}}')
-            {%  endfor %}
-        {% endif %}
-    </script>
-</body>
+            <div id="header-container">
+                {% load static %}
+                <img src="{%  static "trollface.png" %}" id="header"/>
+                <h1 style="display:inline;font-size:80px;font-weight:600;">Troll Blocker</h1>
+            </div>
+
+            <p>Hello <i>@{{ user_name }}</i>, welcome to Troll Blocker </p>
+
+            <a href="{% url 'auth' %}">
+                <button class="btn btn-default btn-lg btn-block">
+                    <img style="width: 25px;" src="{% static "Twitter-icon.png" %}"> Sign in with Twitter
+                </button>
+            </a>
+            <form action="{% url 'block' %}" method="post">{% csrf_token %}
+                <button type="submit" value="Block" class="btn btn-danger btn-lg btn-block">
+                    <span class="glyphicon glyphicon-ban-circle"></span> start Blocking
+                </button>
+            </form>
+            <form action="{% url 'stop' %}" method="post">{%  csrf_token %}
+                <button type="submit" value="Stop" class="btn btn-primary btn-lg btn-block">
+                    <span class="glyphicon glyphicon-stop"></span> Stop Blocking
+                </button>
+            </form>
+        </div>
+
+        <script>
+            {% if messages %}
+                {%  for message in messages %}
+                    alert('{{message}}')
+                {%  endfor %}
+            {% endif %}
+        </script>
+    </body>
 </html>

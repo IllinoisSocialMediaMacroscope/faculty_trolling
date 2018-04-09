@@ -1,0 +1,78 @@
+body{
+    background-color:black;
+    //background-image: url("UofI_logo.jpg");
+    //background-size: 150px;
+}
+#app-container {
+    background-color: #FF9800;
+    border-radius: 20px;
+    padding: 100px 50px;
+    width: 800px;
+    margin-top:100px;
+}
+
+#header {
+    vertical-align: middle;
+    width: 120px;
+    margin: 30px auto;
+    margin-top: -10px;
+    margin-right: 20px;
+    display:inline;
+}
+
+#header-container{
+    text-align:center;
+    display:block;
+    margin:50px auto;
+    color:black;
+}
+
+p{
+    font-size:20px;
+    text-algin:center;
+}
+
+h2{
+    text-align:center;
+}
+
+a:hover{
+    text-decoration:none;
+}
+
+.btn-block {
+    margin:10px auto;
+}
+
+.btn-primary {
+    border:none;
+    background-color:#122a4b;
+}
+
+.btn-danger {
+    border:none;
+    background-color: #ff4605;
+}
+
+.btn-default {
+    border:none;
+    background-color: #d3d3d3;
+}
+
+.btn-success{
+    border:none;
+    background-color:transparent;
+    color:#122a4b;
+}
+.btn-success:hover{
+    background-color:#122a4b;
+    border:none;
+    color:white;
+}
+
+.nav-pills>li.active>a,
+.nav-pills>li.active>a:focus,
+.nav-pills>li.active>a:hover{
+    background-color:lightgrey;
+    color:black;
+}
